@@ -125,7 +125,7 @@ func (c *Client) waitAndRefreshDefinitions(d time.Duration) {
 }
 
 func (c *Client) initWsdl() {
-	c.Definitions, c.definitionsErr = getWsdlDefinitions(c.wsdl, c.HTTPClient)
+	c.Definitions, c.definitionsErr = getWsdlDefinitions(c.wsdl, c.Username, c.Password, c.HTTPClient)
 	if c.definitionsErr == nil {
 		c.URL = strings.TrimSuffix(c.Definitions.TargetNamespace, "/")
 	}
